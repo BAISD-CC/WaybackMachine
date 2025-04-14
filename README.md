@@ -46,11 +46,10 @@ Table of Contents
 * 5 [Appendixes](#5-appendixes)
 
 ## Revision History
-| Name | Date    | Reason For Changes  | Version   |
-| ---- | ------- | ------------------- | --------- |
-|      |         |                     |           |
-|      |         |                     |           |
-|      |         |                     |           |
+| Name          | Date       | Reason For Changes     | Version |
+|---------------|------------|-------------------------|---------|
+| J. Kruskie    | 2025-04-14 | Initial draft completed | 0.1     |
+
 
 ## 1. Introduction  
 This document provides a comprehensive Software Requirements Specification (SRS) for **The Wayback Machine**, a desktop application designed to preserve and showcase previously developed student projects. The application will function as an interactive launcher and archival platform, allowing users to explore, view, and play past games created by students.
@@ -226,100 +225,356 @@ The software requirements for **The Wayback Machine** are divided between two ma
 
 Some future enhancements (such as analytics tracking or user feedback features) may require further allocation or modification of these responsibilities. For now, each requirement is clearly associated with one of the two core software elements.
 
+## 3. Requirements  
+This section outlines the complete set of software requirements for **The Wayback Machine**. Each requirement is written to be specific, verifiable, and actionable to guide development and enable effective testing.
 
-## 3. Requirements
-> This section specifies the software product's requirements. Specify all of the software requirements to a level of detail sufficient to enable designers to design a software system to satisfy those requirements, and to enable testers to test that the software system satisfies those requirements.
+Requirements are organized into the following categories:
+- **External Interfaces**: Details on how the software will interact with users, hardware, and other software components.
+- **Functional Requirements**: Core behaviors and system functionality.
+- **Quality of Service Requirements**: Expectations for performance, security, reliability, and availability.
+- **Compliance Requirements**: Standards and policies the system must adhere to.
+- **Design and Implementation Constraints**: Installation, maintainability, and distribution requirements that affect development and deployment.
 
-> The specific requirements should:
-* Be uniquely identifiable.
-* State the subject of the requirement (e.g., system, software, etc.) and what shall be done.
-* Optionally state the conditions and constraints, if any.
-* Describe every input (stimulus) into the software system, every output (response) from the software system, and all functions performed by the software system in response to an input or in support of an output.
-* Be verifiable (e.g., the requirement realization can be proven to the customer's satisfaction)
-* Conform to agreed upon syntax, keywords, and terms.
+Each requirement is intended to clearly describe expected behavior and technical constraints, ensuring both the launcher and Web API components can be properly implemented and validated.
 
-### 3.1 External Interfaces
-> This subsection defines all the inputs into and outputs requirements of the software system. Each interface defined may include the following content:
-* Name of item
-* Source of input or destination of output
-* Valid range, accuracy, and/or tolerance
-* Units of measure
-* Timing
-* Relationships to other inputs/outputs
-* Screen formats/organization
-* Window formats/organization
-* Data formats
-* Command formats
-* End messages
+### 3.1 External Interfaces  
 
-#### 3.1.1 User interfaces
-Define the software components for which a user interface is needed. Describe the logical characteristics of each interface between the software product and the users. This may include sample screen images, any GUI standards or product family style guides that are to be followed, screen layout constraints, standard buttons and functions (e.g., help) that will appear on every screen, keyboard shortcuts, error message display standards, and so on. Details of the user interface design should be documented in a separate user interface specification.
+This section defines the external interfaces for **The Wayback Machine**, including user inputs, hardware controls, software communication protocols, and data formats. These interfaces are essential for enabling communication between the launcher, the Web API, and the end users.
 
-Could be further divided into Usability and Convenience requirements.
+| Interface Name           | Type           | Source/Destination                  | Format/Details                                             |
+|--------------------------|----------------|-------------------------------------|------------------------------------------------------------|
+| User Input (Arcade)      | Input          | Arcade joysticks & buttons          | Mapped to launcher navigation and game selection           |
+| Admin Input              | Input          | Hidden keyboard and mouse           | Used for configuration, troubleshooting, and maintenance   |
+| Web API Requests         | Input/Output   | Launcher ↔ API                      | HTTP GET/POST, JSON format                                 |
+| Game Downloads           | Output/Input   | GitHub ↔ Launcher                   | Git protocol, local file extraction                        |
+| Game Executables         | Output         | Launcher → OS                       | .exe files launched as subprocesses                        |
+| Image/Media Rendering    | Output         | Launcher UI                         | PNG/JPG files retrieved from Web API and cached locally    |
 
-#### 3.1.2 Hardware interfaces
-Describe the logical and physical characteristics of each interface between the software product and the hardware components of the system. This may include the supported device types, the nature of the data and control interactions between the software and the hardware, and communication protocols to be used.
+The following subsections will further detail:
+- [3.1.1 User Interfaces](#311-user-interfaces)  
+- [3.1.2 Hardware Interfaces](#312-hardware-interfaces)  
+- [3.1.3 Software Interfaces](#313-software-interfaces)
 
-#### 3.1.3 Software interfaces
-Describe the connections between this product and other specific software components (name and version), including databases, operating systems, tools, libraries, and integrated commercial components. Identify the data items or messages coming into the system and going out and describe the purpose of each. Describe the services needed and the nature of communications. Refer to documents that describe detailed application programming interface protocols. Identify data that will be shared across software components. If the data sharing mechanism must be implemented in a specific way (for example, use of a global data area in a multitasking operating system), specify this as an implementation constraint.
 
-### 3.2 Functional
-> This section specifies the requirements of functional effects that the software-to-be is to have on its environment.
+#### 3.1.1 User Interfaces  
 
-### 3.3 Quality of Service
-> This section states additional, quality-related property requirements that the functional effects of the software should present.
+The Wayback Machine includes a custom user interface designed for use with arcade-style controls and aligned with classroom branding standards. The interface is optimized for full-screen display on a 1UP Rampage arcade cabinet.
 
-#### 3.3.1 Performance
-If there are performance requirements for the product under various circumstances, state them here and explain their rationale, to help the developers understand the intent and make suitable design choices. Specify the timing relationships for real time systems. Make such requirements as specific as possible. You may need to state performance requirements for individual functional requirements or features.
+**Launcher UI Characteristics:**
+- Full-screen, arcade-style layout with large, navigable elements.
+- Grid or carousel-style game browser showcasing project thumbnails and titles.
+- Detail view for selected games showing:
+  - Game title and description
+  - Student name(s)
+  - Game screenshot(s)
+  - Download and launch options
+- Offline indicator banner when disconnected from the Web API.
 
-#### 3.3.2 Security
-Specify any requirements regarding security or privacy issues surrounding use of the product or protection of the data used or created by the product. Define any user identity authentication requirements. Refer to any external policies or regulations containing security issues that affect the product. Define any security or privacy certifications that must be satisfied.
+**GUI Style & Branding:**
+- Follows classroom branding guidelines as outlined in the Code Dojo style guide.
+- Includes consistent use of the Code Dojo logo, color palette, and fonts.
+- Visual emphasis on showcasing student creativity and school identity.
 
-#### 3.3.3 Reliability
-Specify the factors required to establish the required reliability of the software system at time of delivery.
+**Usability Requirements:**
+- All major actions must be accessible via arcade controls (joystick + buttons).
+- Navigation should be smooth and intuitive for non-technical users.
+- Game launching must be possible in three or fewer user interactions.
 
-#### 3.3.4 Availability
-Specify the factors required to guarantee a defined availability level for the entire system such as checkpoint, recovery, and restart.
+**Convenience Requirements:**
+- Hidden keyboard/mouse support for administrative troubleshooting.
+- Automatic caching of data and images to support offline mode.
+- Error messages displayed in simple language with retry or fallback options.
 
-### 3.4 Compliance
-Specify the requirements derived from existing standards or regulations, including:  
-* Report format
-* Data naming
-* Accounting procedures
-* Audit tracing
+Details of the layout, icons, and screen structure will be defined in a separate user interface specification document.
 
-For example, this could specify the requirement for software to trace processing activity. Such traces are needed for some applications to meet minimum regulatory or financial standards. An audit trace requirement may, for example, state that all changes to a payroll database shall be recorded in a trace file with before and after values.
+#### 3.1.2 Hardware Interfaces  
+
+**The Wayback Machine** is designed to operate on a modified 1UP Rampage arcade cabinet, interfacing directly with several physical input and output devices. The launcher must recognize and respond to the following hardware components:
+
+**Input Devices:**
+- **Joysticks**: Used for navigating the game library and menu selections.
+- **Arcade Buttons**: Mapped to actions such as selecting a game, returning to the main menu, launching a game, and confirming prompts.
+- **Keyboard and Mouse (hidden/internal use)**: Used by instructors or administrators for maintenance, troubleshooting, or manual override. These should not interfere with normal arcade operation.
+
+**Output Devices:**
+- **Monitor/Display**: The software must support a fixed resolution display (typically 1280x720 or 1920x1080) used by the arcade cabinet.
+- **Audio Output (optional)**: If games include audio, the system must support playback through the cabinet’s built-in speakers.
+
+**Interaction Layer:**
+- Input polling or key mapping libraries (e.g., SDL, GLFW, or OS-level key mapping) will interpret joystick and button input.
+- All hardware interfaces must be mapped correctly in the launcher configuration file or during installation to ensure responsive control.
+
+**Fallback Controls:**
+- The system must default to keyboard/mouse if arcade inputs are not detected during boot, allowing continued use and testing outside of the cabinet.
+
+#### 3.1.3 Software Interfaces  
+
+The Wayback Machine integrates with multiple software components to support its functionality. These include the operating system, database, GitHub repositories, and a RESTful Web API. The following outlines the software interfaces used:
+
+---
+
+**Operating System**  
+- **Windows 10/11**  
+  The launcher application is designed to run on Windows, using native system calls to launch `.exe` files and access system-level Git functionality.
+
+---
+
+**Database**  
+- **Relational Database (PostgreSQL or MySQL)**  
+  The Web API will interface with a relational database that stores game metadata, student information, image URLs, and GitHub repository links.  
+  Direct database access is only performed by the API layer.
+
+---
+
+**Web API**  
+- **Custom RESTful API**  
+  The launcher communicates with the API using HTTP GET requests to fetch game data and image URLs.  
+  All responses are returned in JSON format and parsed by the launcher.  
+  The API may be hosted locally or remotely and must be accessible via the arcade machine.
+
+**Example JSON Response Format**  
+\`\`\`json
+{
+  "projects": [
+    {
+      "title": "Pixel Racer",
+      "description": "A 2D racing game with a custom track editor.",
+      "authors": ["Jane Smith"],
+      "image_url": "https://cdn.codedojo.me/images/pixelracer.jpg",
+      "repo_url": "https://github.com/janesmith/pixel-racer"
+    }
+  ]
+}
+\`\`\`
+
+---
+
+**Version Control Interface**  
+- **Git (v2.30 or later)**  
+  The launcher uses Git to clone project repositories from GitHub using the \`repo_url\` stored in the database.  
+  Git must be installed on the arcade machine and accessible via the system path.
+
+---
+
+**Asset and Media Handling**  
+- Project images (JPG/PNG) are downloaded from the URLs provided in the API response and cached locally.  
+- The launcher must be able to display these images and continue using them in offline mode if needed.
+
+---
+
+**Implementation Constraints**  
+- API endpoints and GitHub repository URLs must be configurable via a local \`.env\` or config file.  
+- If the API schema changes, the launcher must be updated accordingly to reflect any new or modified data fields.
+
+
+### 3.2 Functional  
+
+The functional requirements of The Wayback Machine define the core behaviors the software must exhibit in response to user actions and system events. These include:
+
+- The launcher must retrieve and display a list of games from the Web API.
+- The launcher must store a local JSON cache for offline use.
+- The launcher must allow users to navigate the interface using arcade controls.
+- The launcher must allow users to select and view details about a game, including:
+  - Title
+  - Description
+  - Author(s)
+  - Screenshot(s)
+- The launcher must allow users to download games using Git.
+- The launcher must launch downloaded games from the interface.
+- The Web API must serve a JSON object containing game metadata and image URLs.
+- The Web API must support updating and retrieving entries in the game archive.
+- The system must prevent the same game from being downloaded multiple times unnecessarily.
+- The launcher must gracefully handle errors (e.g., API offline, missing game repo).
+- Administrative users must be able to modify launcher settings using a keyboard/mouse.
+
+---
+
+### 3.3 Quality of Service  
+
+The following quality-related requirements apply to The Wayback Machine:
+
+- The launcher must be responsive and load the game list within 2 seconds under normal conditions.
+- Cached data must persist between launcher restarts.
+- The UI must remain usable with only arcade controls (no mouse required).
+- Error messages must be user-friendly and non-technical in language.
+- The system must be usable in offline mode with the most recently fetched data.
+- The API and launcher must both handle up to 100 games in the archive without performance degradation.
+- API responses must conform to a consistent and predictable JSON schema.
+- The system must be designed to minimize data usage during API requests.
+
+#### 3.3.1 Performance  
+
+Performance requirements for The Wayback Machine are minimal on the launcher side, but more critical on the backend (Web API) side. Specific expectations are as follows:
+
+- The launcher must load the game list and related metadata from the local cache or Web API in under 2 seconds under normal conditions.
+- The launcher must remain responsive to user input at all times, including when fetching data or downloading games.
+- Game performance is not the responsibility of The Wayback Machine software and is considered out of scope. Any performance issues within the games themselves are the responsibility of the student developers.
+- The Web API must respond to requests for game metadata within 500 milliseconds on a stable network connection.
+- The system must support up to 100 archived games without noticeable slowdown during list rendering or API response generation.
+
+These performance expectations are in place to ensure the system feels smooth and responsive to end users while maintaining scalability as the number of archived projects grows.
+
+#### 3.3.2 Security  
+
+The Wayback Machine does not implement authentication or security controls at this time.
+
+- The Web API will be publicly accessible without authentication. It will serve read-only data related to student projects, including game metadata and image URLs.
+- No sensitive or personally identifiable information (PII) will be stored or transmitted by the system.
+- The launcher will not include any form of login or user identity management.
+- Any future version that introduces write access or administrative controls to the API should revisit and expand upon this section.
+
+As the system is designed for internal educational use and contains only public student-facing content, security is not a primary concern for this version.
+
+#### 3.3.3 Reliability  
+
+The Wayback Machine is expected to operate reliably under normal conditions, with minimal risk of failure.
+
+- The launcher must be capable of displaying the game list and launching games without crashing or becoming unresponsive.
+- The system must handle missing or malformed data (e.g., broken API response or missing image files) without failing entirely.
+- If a game fails to download or launch, the system must display an error message and allow the user to return to the main menu without restarting the application.
+
+---
+
+#### 3.3.4 Availability  
+
+The system must be available for use whenever the host machine is powered on.
+
+- The launcher application will be configured to automatically start on system boot, ensuring consistent availability on the arcade machine.
+- The Web API will be hosted on a server that also automatically restarts the service on system boot.
+- No advanced availability strategies (such as load balancing, failover, or horizontal scaling) will be implemented for the Web API in this version.
+- There is no requirement for 24/7 uptime, but the system should recover from restarts without manual intervention.
+  
+### 3.4 Compliance  
+
+There are no specific compliance requirements for The Wayback Machine at this time.
+
+- The system is intended for internal educational use and does not handle financial, legal, or sensitive personal data.
+- There are no regulatory standards, audit trails, or data formatting rules that must be followed.
+- No report formatting, data naming conventions, or accounting procedures are required for this project.
+
+If future versions of the system expand into broader deployment or handle sensitive data, this section should be revisited.
 
 ### 3.5 Design and Implementation
 
-#### 3.5.1 Installation
-Constraints to ensure that the software-to-be will run smoothly on the target implementation platform.
+#### 3.5.1 Installation  
 
-#### 3.5.2 Distribution
-Constraints on software components to fit the geographically distributed structure of the host organization, the distribution of data to be processed, or the distribution of devices to be controlled.
+Installation constraints and requirements for The Wayback Machine are as follows:
 
-#### 3.5.3 Maintainability
-Specify attributes of software that relate to the ease of maintenance of the software itself. These may include requirements for certain modularity, interfaces, or complexity limitation. Requirements should not be placed here just because they are thought to be good design practices.
+- **Web API**  
+  - The Web API will be hosted on an Ubuntu Server virtual machine.  
+  - It is expected to run inside a Docker container for ease of deployment and management.  
+  - Docker and Docker Compose must be installed and properly configured on the host VM.  
+  - API configuration (e.g., database credentials, environment variables) will be managed via a `.env` file or Docker Compose environment definitions.
 
-#### 3.5.4 Reusability
-<!-- TODO: come up with a description -->
+- **Launcher Application**  
+  - The launcher will be installed directly on the arcade machine, which runs Windows 10 or 11.  
+  - The application may be set to auto-launch on system startup using a shortcut in the Windows Startup folder or a scheduled task.  
+  - Required dependencies (e.g., Git, any runtime libraries) must be pre-installed on the arcade machine.  
+  - Local configuration for the launcher (e.g., API endpoint, caching options) will be stored in a JSON or config file within the installation directory.
 
-#### 3.5.5 Portability
-Specify attributes of software that relate to the ease of porting the software to other host machines and/or operating systems.
+#### 3.5.2 Distribution  
 
-#### 3.5.6 Cost
-Specify monetary cost of the software product.
+The Wayback Machine does not require complex distribution across multiple physical locations.
 
-#### 3.5.7 Deadline
+- The Web API will be hosted on a single virtual machine accessible over a local or public network.
+- The launcher will run on a single arcade machine located in the classroom.
+- All data retrieval occurs over HTTP(S), and there are no distributed processing components.
+- No load balancing, replication, or remote client deployment is required for this version.
+
+---
+
+#### 3.5.3 Maintainability  
+
+Maintainability has been considered in the architecture of The Wayback Machine:
+
+- The Web API is modular, with separate components for routing, database access, and data formatting.
+- Code for the launcher is expected to follow clear modular structures, separating UI logic, API communication, and local caching.
+- Configuration values (e.g., API endpoint, cache timeout, branding options) are stored in editable config files to allow updates without modifying source code.
+- Both the API and launcher should include clear inline comments and README documentation for future developers.
+
+---
+
+#### 3.5.4 Reusability  
+
+- The Web API is designed to be reusable for other educational or archival projects by adjusting database entries and media paths.
+- The launcher could be repurposed for other content collections by swapping out the JSON schema and UI branding.
+- Both systems are built with minimal hardcoded values, allowing for future adaptation with minimal changes.
+
+#### 3.5.5 Portability  
+
+- The Web API is containerized using Docker, making it highly portable across any system that supports Docker and Docker Compose.
+- The launcher is currently designed for Windows and may require minor modifications to run on other operating systems.
+- Porting the launcher to Linux or macOS would require replacing Windows-specific components, such as `.exe` launching logic.
+- All configuration values are stored in external config files, reducing dependency on machine-specific settings.
+
+---
+
+#### 3.5.6 Cost  
+
+- There are no direct costs associated with the development or deployment of The Wayback Machine.
+- All software components are built using open-source technologies (e.g., Git, Docker, PostgreSQL).
+- The only potential costs are related to optional hosting infrastructure (e.g., VPS for Web API), which is currently covered internally by the school or class.
+
+---
+
+#### 3.5.7 Deadline  
+
+- The project is expected to reach a functional proof-of-concept stage by **[Insert Desired Date Here]**.
+- Final delivery, including testing and deployment to the arcade machine, is targeted for completion by **[Insert Final Delivery Date Here]**.
+- Timeline milestones may include:
+  - Web API setup and database schema: Week 1
+  - Launcher UI and API integration: Week 2–3
+  - Game download/launch functionality: Week 4
+  - Testing, polish, and deployment: Week 5
+
 Specify schedule for delivery of the software product.
 
-#### 3.5.8 Proof of Concept
-<!-- TODO: come up with a description -->
+#### 3.5.8 Proof of Concept  
+A working prototype will demonstrate all core features, including fetching game data from the API, caching for offline mode, and launching downloaded games. The proof of concept will validate system feasibility before full deployment.
 
-## 4. Verification
-> This section provides the verification approaches and methods planned to qualify the software. The information items for verification are recommended to be given in a parallel manner with the requirement items in Section 3. The purpose of the verification process is to provide objective evidence that a system or system element fulfills its specified requirements and characteristics.
+## 4. Verification  
 
-<!-- TODO: give more guidance, similar to section 3 -->
-<!-- ieee 15288:2015 -->
+The verification process for The Wayback Machine will ensure that the system meets all defined functional and quality requirements. Each major feature or system behavior will be tested through manual and automated methods to confirm it works as intended.
 
-## 5. Appendixes
+Verification activities will include:
+
+- **Launcher Functionality**
+  - Confirm the launcher can retrieve and parse game metadata from the Web API.
+  - Verify that the game list is displayed correctly, including titles, descriptions, and images.
+  - Test navigation and selection using arcade controls.
+  - Validate that games can be downloaded via Git and launched successfully.
+  - Confirm local JSON caching functions properly and supports offline mode.
+
+- **Web API**
+  - Test API responses for correct structure and valid data.
+  - Verify that the API serves updated metadata when the database is modified.
+  - Ensure the API responds within the required performance window (under 500ms).
+
+- **System Integration**
+  - Validate full communication loop: database → API → launcher → game.
+  - Simulate failures (e.g., API unavailable, broken repo URL) to verify error handling.
+  - Confirm automatic startup behavior of both launcher and API on system reboot.
+
+Each requirement defined in Section 3 will be reviewed against these tests to verify that the software performs as expected under realistic conditions. Any failed test will be logged and addressed before final deployment.
+
+## 5. Appendixes  
+
+This section includes supplementary information that supports the development and understanding of The Wayback Machine. Appendices may include diagrams, configuration examples, environment setup instructions, or additional reference material.
+
+### Appendix A: Sample `.env` File for Web API  
+```
+DB_HOST=localhost  
+DB_PORT=5432  
+DB_USER=admin  
+DB_PASS=securepassword  
+DB_NAME=waybackmachine  
+```
+
+### Appendix B: Arcade Control Mappings  
+- Joystick Up/Down/Left/Right → Menu Navigation  
+- Button A → Select / Confirm  
+- Button B → Back / Cancel  
+- Start Button → Launch Game  
+- Hidden Key: `Esc` → Exit Launcher
+
+Additional appendices can be added as needed throughout the project.
