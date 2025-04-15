@@ -16,16 +16,16 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
+// if (app.Environment.IsDevelopment())
+// {
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "BAISD - Wayback Machine v1");
-    });
-}
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "BAISD - Wayback Machine v1");
+});
+// }
 
-app.MapGet("/", () => "Hello World!");
+app.MapGet("/", () => "Bay-Arenac ISD Career Center - Computer Programming - Wayback Machine API");
 
 // Dummy game data utilizing the new Game and Author models
 var games = new[]
