@@ -42,8 +42,8 @@ var games = new[]
                 Name = "AJ Gillard", 
                 GraduationYear = 2026, 
                 Bio = "Lead Developer: A dedicated developer with a passion for game design.",
-                GitHubSlug = "https://github.com/fuzzlea", 
-                LinkedInSlug = "https://linkedin.com/in/ajgillard", 
+                GitHubSlug = "fuzzlea", 
+                LinkedInSlug = "aaron-gillard-670343342", 
                 Picture = string.Empty 
             },
             new Author 
@@ -51,7 +51,7 @@ var games = new[]
                 Name = "Tommy Whitaker", 
                 GraduationYear = 2025, 
                 Bio = "Story Designer and Team Manager: Specializes in crafting immersive gaming experiences.",
-                GitHubSlug = "https://github.com/drzebr", 
+                GitHubSlug = "drzebr", 
                 LinkedInSlug = string.Empty,
                 Picture = string.Empty
             },
@@ -60,7 +60,7 @@ var games = new[]
                 Name = "Peyton Sampier", 
                 GraduationYear = 2026, 
                 Bio = "Artist (Hand Drawn): Enthusiastic about puzzle mechanics and innovative gameplay.",
-                GitHubSlug = "https://github.com/peytosequi", 
+                GitHubSlug = "peytosequi", 
                 LinkedInSlug = string.Empty,
                 Picture = string.Empty
             },
@@ -69,7 +69,7 @@ var games = new[]
                 Name = "Hayden Duletzke", 
                 GraduationYear = 2025, 
                 Bio = "Artist (Pixel Art): Combines creativity and technical expertise in game development.",
-                GitHubSlug = "https://github.com/Deboossmoo-Code", 
+                GitHubSlug = "Deboossmoo-Code", 
                 LinkedInSlug = string.Empty, 
                 Picture = string.Empty
             }
@@ -77,7 +77,7 @@ var games = new[]
         Year = 2024,
         Genres = new List<Genre> { Genre.Puzzle, Genre.Adventure },
         ImageUrl = "test.png",
-        RepoUrl = "https://github.com/fuzzlea/Deep-Down-The-Lost-City-of-Atlantis/archive/refs/heads/main.zip",
+        RepoUrl = "fuzzlea/Deep-Down-The-Lost-City-of-Atlantis/archive/refs/heads/main.zip",
         ExeDir = "game.exe"
     }
 };
