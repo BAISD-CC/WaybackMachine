@@ -98,5 +98,6 @@ var games = new[]
 };
 
 app.MapGet("/games", () => Results.Json(games));
+app.MapGet("/categories", () => Genre.GetNames(typeof(Genre)));
 
 app.Run();
