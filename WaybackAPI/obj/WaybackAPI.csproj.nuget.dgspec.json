@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/kruskiej/Documents/WaybackMachine/WaybackAPI/WaybackAPI.csproj": {}
+    "/Users/codedojo/Documents/WaybackMachine/WaybackAPI/WaybackAPI.csproj": {}
   },
   "projects": {
-    "/Users/kruskiej/Documents/WaybackMachine/WaybackAPI/WaybackAPI.csproj": {
+    "/Users/codedojo/Documents/WaybackMachine/WaybackAPI/WaybackAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/kruskiej/Documents/WaybackMachine/WaybackAPI/WaybackAPI.csproj",
+        "projectUniqueName": "/Users/codedojo/Documents/WaybackMachine/WaybackAPI/WaybackAPI.csproj",
         "projectName": "WaybackAPI",
-        "projectPath": "/Users/kruskiej/Documents/WaybackMachine/WaybackAPI/WaybackAPI.csproj",
-        "packagesPath": "/Users/kruskiej/.nuget/packages/",
-        "outputPath": "/Users/kruskiej/Documents/WaybackMachine/WaybackAPI/obj/",
+        "projectPath": "/Users/codedojo/Documents/WaybackMachine/WaybackAPI/WaybackAPI.csproj",
+        "packagesPath": "/Users/codedojo/.nuget/packages/",
+        "outputPath": "/Users/codedojo/Documents/WaybackMachine/WaybackAPI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/kruskiej/.nuget/NuGet/NuGet.Config"
+          "/Users/codedojo/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
