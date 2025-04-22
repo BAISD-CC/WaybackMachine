@@ -964,19 +964,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/codedojo/.nuget/packages/": {}
+    "C:\\Users\\admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/codedojo/Documents/WaybackMachine/WaybackAPI/WaybackAPI.csproj",
+      "projectUniqueName": "C:\\Users\\admin\\Documents\\GitHub\\WaybackMachine\\WaybackAPI\\WaybackAPI.csproj",
       "projectName": "WaybackAPI",
-      "projectPath": "/Users/codedojo/Documents/WaybackMachine/WaybackAPI/WaybackAPI.csproj",
-      "packagesPath": "/Users/codedojo/.nuget/packages/",
-      "outputPath": "/Users/codedojo/Documents/WaybackMachine/WaybackAPI/obj/",
+      "projectPath": "C:\\Users\\admin\\Documents\\GitHub\\WaybackMachine\\WaybackAPI\\WaybackAPI.csproj",
+      "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\admin\\Documents\\GitHub\\WaybackMachine\\WaybackAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/codedojo/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -1034,7 +1034,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
