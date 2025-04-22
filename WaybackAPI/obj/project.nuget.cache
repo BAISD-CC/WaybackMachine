@@ -2,7 +2,7 @@
   "version": 2,
   "dgSpecHash": "LFjRZ+ueAfs=",
   "success": true,
-  "projectFilePath": "C:\\Users\\admin\\Documents\\GitHub\\WaybackMachine\\WaybackAPI\\WaybackAPI.csproj",
+  "projectFilePath": "/Users/codedojo/Documents/WaybackMachine/WaybackAPI/WaybackAPI.csproj",
   "expectedPackageFiles": [
     "/Users/codedojo/.nuget/packages/microsoft.entityframeworkcore/9.0.4/microsoft.entityframeworkcore.9.0.4.nupkg.sha512",
     "/Users/codedojo/.nuget/packages/microsoft.entityframeworkcore.abstractions/9.0.4/microsoft.entityframeworkcore.abstractions.9.0.4.nupkg.sha512",
