@@ -1,22 +1,24 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualBasic;
 using WaybackAPI.Models;
 
 namespace WaybackAPI.Controllers
 {
-    [Route("Api/[controller]")]
-    [ApiController]
-    public class GamesController : ControllerBase
-    {
+   [Route("Api/[controller]")]
+   [ApiController]
+   public class GamesController : ControllerBase
+   {
 
-        [HttpGet]
-        public async Task<IActionResult> GetGames()
-        {
+      [HttpGet]
+      public async Task<IActionResult> GetGames()
+      {
 
-            var games = new[]
-            {
+         var games = new[]
+         {
                 new Game
                 {
                     Id = 1,
+                    Guid = Guid.NewGuid(),
                     Name = "Deep Down: The Lost City of Atlantis",
                     Description = "A thrilling adventure puzzle game set in the mythical city of Atlantis.",
                     Authors = new List<Author>
@@ -66,10 +68,43 @@ namespace WaybackAPI.Controllers
                 }
             };
 
-            return Ok(games);
+         return Ok(games);
 
-        }
+      }
 
-    }
+      [HttpGet("/Api/[controller]/{_id}")]
+      public async Task<IActionResult> GetGameById(int _id)
+      {
+
+         var call = await GetGames();
+
+         if (call is OkObjectResult okResult)
+         {
+
+            var games = okResult.Value as IEnumerable<Game>;
+
+            if (games == null)
+            {
+               return StatusCode(500, "Failed to parse game list.");
+            }
+
+            var game = games.FirstOrDefault(g => g.Id == _id);
+
+            if (game != null)
+            {
+               return Ok(game);
+            }
+            else
+            {
+               return NotFound($"Game with Guid {_id} not found.");
+            }
+
+         }
+
+         return StatusCode(500, "Unexpected error occurred.");
+
+      }
+
+   }
 
 }
