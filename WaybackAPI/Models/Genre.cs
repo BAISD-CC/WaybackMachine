@@ -1,14 +1,20 @@
 namespace WaybackAPI.Models
 {
-     public enum Genre
+    public enum Genre
     {
-        Puzzle,
-        Adventure,
-        RolePlaying,
         Action,
-        Strategy,
+        Adventure,
+        Fighting,
+        Horror,
+        MMO,
+        Platformer,
+        Puzzle,
+        Racing,
+        RolePlaying,
+        Sandbox,
         Simulation,
         Sports,
-        Platformer
+        Strategy,
+        Survival
     }
 }

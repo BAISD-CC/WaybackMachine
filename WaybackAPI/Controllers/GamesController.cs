@@ -60,7 +60,7 @@ namespace WaybackAPI.Controllers
                     },
                     Year = 2024,
                     Genres = new List<Genre> { Genre.Puzzle, Genre.Adventure },
-                    ImageUrl = "test.png",
+                    ImageUrl = "Tommy's-Last-Braincell.png",
                     RepoUrl = "fuzzlea/Deep-Down-The-Lost-City-of-Atlantis/archive/refs/heads/main.zip",
                     ExeDir = "game.exe"
                 }
