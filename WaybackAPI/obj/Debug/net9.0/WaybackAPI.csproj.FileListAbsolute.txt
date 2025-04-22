@@ -70,3 +70,13 @@
 /Users/codedojo/Documents/WaybackMachine/WaybackAPI/obj/Debug/net9.0/WaybackAPI.pdb
 /Users/codedojo/Documents/WaybackMachine/WaybackAPI/obj/Debug/net9.0/WaybackAPI.genruntimeconfig.cache
 /Users/codedojo/Documents/WaybackMachine/WaybackAPI/obj/Debug/net9.0/ref/WaybackAPI.dll
+/Users/codedojo/Documents/WaybackMachine/WaybackAPI/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.dll
+/Users/codedojo/Documents/WaybackMachine/WaybackAPI/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/codedojo/Documents/WaybackMachine/WaybackAPI/bin/Debug/net9.0/Microsoft.Extensions.Caching.Abstractions.dll
+/Users/codedojo/Documents/WaybackMachine/WaybackAPI/bin/Debug/net9.0/Microsoft.Extensions.Caching.Memory.dll
+/Users/codedojo/Documents/WaybackMachine/WaybackAPI/bin/Debug/net9.0/Microsoft.Extensions.DependencyInjection.dll
+/Users/codedojo/Documents/WaybackMachine/WaybackAPI/bin/Debug/net9.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/Users/codedojo/Documents/WaybackMachine/WaybackAPI/bin/Debug/net9.0/Microsoft.Extensions.Logging.dll
+/Users/codedojo/Documents/WaybackMachine/WaybackAPI/bin/Debug/net9.0/Microsoft.Extensions.Logging.Abstractions.dll
+/Users/codedojo/Documents/WaybackMachine/WaybackAPI/bin/Debug/net9.0/Microsoft.Extensions.Options.dll
+/Users/codedojo/Documents/WaybackMachine/WaybackAPI/bin/Debug/net9.0/Microsoft.Extensions.Primitives.dll
