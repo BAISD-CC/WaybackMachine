@@ -1,7 +1,7 @@
 # Software Requirements Specification
 ## For The Wayback Machine
 
-Version 0.0.05
+Version 0.0.05          
 Prepared by Mr. Kruskie  
 
 
