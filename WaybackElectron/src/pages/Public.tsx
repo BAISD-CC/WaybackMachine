@@ -2,6 +2,7 @@
 import Sidebar from "../components/Sidebar";
 import Topbar from "../components/Topbar";
 import GameSquare from "../components/GameSquare";
+import GameModal from "../components/GameModal";
 
 // Packages
 import { useState, useEffect } from "react";
@@ -53,6 +54,8 @@ export default function Public() {
 
             <Sidebar />
 
+            <GameModal />
+
             <div className="flex flex-col items-center p-5 w-full h-full">
 
                <Topbar />
@@ -78,8 +81,6 @@ export default function Public() {
             </div>
 
          </div >
-
-
 
       </>
 

@@ -1,7 +1,13 @@
+// Components
 import { Game } from "../pages/Public";
-import test_icon from "../assets/placeholder-square.jpg";
+import GameModal from "./GameModal";
+
+// Packages
 import axios from "axios";
 import { useEffect, useState } from "react";
+
+// Other
+import test_icon from "../assets/placeholder-square.jpg";
 
 export default function GameSquare({ game }: { game: Game }) {
    const [gameThumbnail, setGameThumbnail] = useState<string | null>(null);
@@ -36,7 +42,11 @@ export default function GameSquare({ game }: { game: Game }) {
 
    return (
 
-      <div className="duration-100 flex border-4 border-green-500 hover:border-pink-500 bg-zinc-800 w-72 h-72 m-5 overflow-hidden rounded-lg scale-100 hover:scale-105">
+      <a className="duration-100 flex border-4 border-green-500 hover:border-pink-500 bg-zinc-800 w-72 h-72 m-5 overflow-hidden rounded-lg scale-100 hover:scale-105" onClick={() => {
+
+         // GameModal component, call useState function 'setIsShown' with a value of true
+
+      }}>
 
          <div className="flex self-end justify-center items-center w-full h-16 text-center">
 
@@ -50,7 +60,7 @@ export default function GameSquare({ game }: { game: Game }) {
 
          </div>
 
-      </div>
+      </a>
 
    );
 }

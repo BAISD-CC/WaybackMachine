@@ -1,25 +1,34 @@
-import React from 'react'
 import * as ReactDOM from 'react-dom/client';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 
 // pages
 
 import Public from './pages/Public';
+import Contributors from './pages/Contributors';
+import Credits from './pages/Credits';
 
 // default
 const App = () => (
 
    <>
 
-      {/* WRAPPER */}
-      <div className="font-codedojofont text-2xl">
+      <HashRouter>
 
-         {/* BACKGROUND */}
-         <div className="bg-zinc-950 w-screen h-screen fixed -z-10"></div>
+         {/* WRAPPER */}
+         <div className="font-codedojofont text-2xl">
 
-         {/* PAGE */}
-         <Public />
+            {/* BACKGROUND */}
+            <div className="bg-zinc-950 w-screen h-screen fixed -z-10"></div>
 
-      </div>
+            {/* PAGE */}
+            <Routes>
+               <Route path="/" element={<Public />} />
+               <Route path="/contributors" element={<Contributors />} />
+               <Route path="/credits" element={<Credits />} />
+            </Routes>
+         </div>
+
+      </HashRouter>
 
    </>
 );
