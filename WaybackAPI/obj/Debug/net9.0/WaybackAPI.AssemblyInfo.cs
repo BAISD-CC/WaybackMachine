@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WaybackAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2f98c24ea269566fb1e3c4470f112bdb3bb7ed4d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b9a01d3419b90dabbf9e72ff1d9b29dbec2356fe")]
 [assembly: System.Reflection.AssemblyProductAttribute("WaybackAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WaybackAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

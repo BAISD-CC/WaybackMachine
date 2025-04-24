@@ -21,11 +21,7 @@ namespace WaybackAPI.Controllers
                Guid = Guid.NewGuid(),
                Name = "Deep Down: The Lost City of Atlantis",
                Description = "A thrilling adventure puzzle game set in the mythical city of Atlantis.",
-               Contributors = new List<Contributor>
-               {
-
-
-               },
+               Contributors = null,
                Year = 2024,
                Genres = new List<Genre> { Genre.Puzzle, Genre.Adventure },
                ImageUrl = "Tommy's-Last-Braincell.png",

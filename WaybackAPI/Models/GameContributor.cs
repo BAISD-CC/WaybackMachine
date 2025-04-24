@@ -14,7 +14,6 @@ namespace WaybackAPI.Models
       public required Game Game { get; set; }
       public required Contributor Contributor { get; set; }
 
-
    }
 
 }
