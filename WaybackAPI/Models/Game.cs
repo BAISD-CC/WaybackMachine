@@ -11,7 +11,7 @@ namespace WaybackAPI.Models
       [Required]
       public required string Name { get; set; }
       public required string Description { get; set; }
-      public List<Contributor> Contributors { get; set; } = new List<Contributor>();
+      public ICollection<Contributor> Contributors { get; set; } = new List<Contributor>();
       public int Year { get; set; }
       public List<Genre> Genres { get; set; } = new List<Genre>();
       public required string ImageUrl { get; set; }
