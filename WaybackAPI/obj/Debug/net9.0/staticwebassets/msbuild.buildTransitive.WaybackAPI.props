@@ -1,3 +1,3 @@
 ﻿<Project>
-  <Import Project="..\buildMultiTargeting\WaybackAPI.props" />
+  <Import Project="../buildMultiTargeting/WaybackAPI.props" />
 </Project>

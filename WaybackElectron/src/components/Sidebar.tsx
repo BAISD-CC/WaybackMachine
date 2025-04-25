@@ -1,11 +1,37 @@
 import classLogo from '../assets/code-dojo-full-color-new-2.png';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+
+import '../animations.css';
+import { getSidebarAnimated, setSidebarAnimated } from '../global.var';
 
 export default function Sidebar() {
 
+   const [opened, setIsOpened] = useState(false)
+   const [shouldAnimate, setShouldAnimate] = useState(false)
+
+   useState(() => {
+
+      const animated = getSidebarAnimated();
+
+      if (!animated) {
+
+         setSidebarAnimated(true);
+         setShouldAnimate(true);
+
+      }
+
+      setIsOpened(getSidebarAnimated());
+
+   });
+
+   const sidebarAnimationClassFix = opened
+      ? `z-40 w-64 h-screen transition-transform -translate-x-0 ${shouldAnimate ? "animations-slide-right" : ""}`
+      : "z-40 w-64 h-screen transition-transform -translate-x-0";
+
    return (<>
 
-      <aside id="logo-sidebar" className="z-40 w-64 h-screen transition-transform -translate-x-0" aria-label="Sidebar">
+      <aside id="logo-sidebar" className={sidebarAnimationClassFix} aria-label="Sidebar">
          <div className="h-full px-3 py-4 flex flex-col overflow-y-none bg-gray-50 dark:bg-zinc-900">
 
             {/* LOGO */}
@@ -62,7 +88,7 @@ export default function Sidebar() {
                </ul>
 
                {/* VERSION */}
-               <p className="relative mt-4 left-1/3 text-center text-white">v.0.0.04</p>
+               <p className="relative mt-4 left-1/3 text-center text-white">v.0.0.05</p>
 
             </div>
 

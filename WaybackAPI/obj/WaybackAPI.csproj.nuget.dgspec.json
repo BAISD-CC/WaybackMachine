@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\AJ\\Documents\\GitHub\\WaybackMachine\\WaybackAPI\\WaybackAPI.csproj": {}
+    "/Users/aj/Documents/GitHub/WaybackMachine/WaybackAPI/WaybackAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\AJ\\Documents\\GitHub\\WaybackMachine\\WaybackAPI\\WaybackAPI.csproj": {
+    "/Users/aj/Documents/GitHub/WaybackMachine/WaybackAPI/WaybackAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\AJ\\Documents\\GitHub\\WaybackMachine\\WaybackAPI\\WaybackAPI.csproj",
+        "projectUniqueName": "/Users/aj/Documents/GitHub/WaybackMachine/WaybackAPI/WaybackAPI.csproj",
         "projectName": "WaybackAPI",
-        "projectPath": "C:\\Users\\AJ\\Documents\\GitHub\\WaybackMachine\\WaybackAPI\\WaybackAPI.csproj",
-        "packagesPath": "C:\\Users\\AJ\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\AJ\\Documents\\GitHub\\WaybackMachine\\WaybackAPI\\obj\\",
+        "projectPath": "/Users/aj/Documents/GitHub/WaybackMachine/WaybackAPI/WaybackAPI.csproj",
+        "packagesPath": "/Users/aj/.nuget/packages/",
+        "outputPath": "/Users/aj/Documents/GitHub/WaybackMachine/WaybackAPI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\AJ\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/aj/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -36,7 +36,7 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "all"
+          "auditMode": "direct"
         },
         "SdkAnalysisLevel": "9.0.100"
       },
@@ -72,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

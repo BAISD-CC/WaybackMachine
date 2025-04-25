@@ -8,6 +8,9 @@ import GameModal from "../components/GameModal";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+// Other
+import '../animations.css'
+
 // Interface
 export interface Game {
    id: number,
@@ -61,7 +64,7 @@ export default function Public() {
                <Topbar />
 
                {/* RIGHT SIDE */}
-               <div className="bg-zinc-900 flex justify-center w-full h-full overflow-y-auto overflow-x-hidden mt-5 rounded-lg">
+               <div className="animations-slide-left bg-zinc-900 flex justify-center w-full h-full overflow-y-auto overflow-x-hidden mt-5 rounded-lg">
 
                   {/* GAME CONTAINER */}
                   <div className="w-fit h-fit grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">

@@ -2,6 +2,8 @@ import Dropdown from "./Dropdown";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+import '../animations.css';
+
 export default function Topbar() {
 
    const categoryDataPath = "http://localhost:5111/categories";
@@ -29,7 +31,7 @@ export default function Topbar() {
 
    return (
 
-      <div className="flex items-center w-full h-16 bg-zinc-900 rounded-lg p-2">
+      <div className="animations-slide-bottom z-40 flex items-center w-full h-16 bg-zinc-900 rounded-lg p-2">
 
          <Dropdown title="Categories" options={genres} />
 

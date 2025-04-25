@@ -1024,7 +1024,7 @@ const createWindow = () => {
         height: 600,
         width: 800,
         webPreferences: {
-            preload: 'C:\\Users\\AJ\\Documents\\GitHub\\WaybackMachine\\WaybackElectron\\.webpack\\renderer\\main_window\\preload.js',
+            preload: '/Users/aj/Documents/GitHub/WaybackMachine/WaybackElectron/.webpack/renderer/main_window/preload.js',
         },
         autoHideMenuBar: true
     });
