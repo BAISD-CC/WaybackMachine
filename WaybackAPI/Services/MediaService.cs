@@ -22,6 +22,13 @@ namespace WaybackAPI.Services
             _context = context;
         }
 
+        /// <summary>
+        /// Retrieves a game thumbnail by its ID.
+        /// This method checks if the game exists in the database and if the thumbnail file exists on the server.
+        /// If both exist, it reads the file and returns its content and content type.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<(byte[]? FileContent, string? ContentType)> GetThumbnailByIdAsync(Guid id)
         {
             // Get the game by ID
