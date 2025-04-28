@@ -36,8 +36,8 @@ export default function Credits() {
                                     Justin Kruskie - Backend
                                 </span>
 
-                                <span className="text-white text-lg drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.4)] -mt-1">
-                                    AJ Gillard - Frontend, Backend
+                                <span className="text-white text-lg drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.4)]">
+                                    AJ Gillard (26) - Frontend, Backend
                                 </span>
 
                             </div>
@@ -46,15 +46,19 @@ export default function Credits() {
                             <div className="w-full h-fit flex flex-col text-left">
 
                                 <span className="text-white text-3xl drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.4)]">
-                                    <span className="text-green-500">Wayback</span> Graphics
-                                </span>
-
-                                <span className="text-white text-lg drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.4)] ">
-                                    Jacob Dewar - Logo, Graphics
+                                    <span className="text-green-500">Wayback</span> Design
                                 </span>
 
                                 <span className="text-white text-lg drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.4)] -mt-1">
-                                    Graphics '24-'25 Class - Graphics
+                                    EJ Noble (26) - Planning
+                                </span>
+
+                                <span className="text-white text-lg drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.4)] ">
+                                    Noah Maciag (26) - Graphics
+                                </span>
+
+                                <span className="text-white text-lg drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.4)]">
+                                    Kaiden Ecker (26) - 3D Modeling
                                 </span>
 
                             </div>
@@ -68,6 +72,10 @@ export default function Credits() {
 
                                 <span className="text-white text-lg drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.4)] ">
                                     Justin Kruskie - Machine Mockups
+                                </span>
+
+                                <span className="text-white text-lg drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.4)] ">
+                                    David Richardson (26) - Assembly
                                 </span>
 
                                 <span className="text-white text-lg drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.4)] ">
