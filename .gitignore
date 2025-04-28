@@ -6,8 +6,8 @@ WaybackAPI/Areas/
 WaybackAPI/Migrations/
 WaybackAPI/Properties/launchSettings.json
 WaybackAPI/Properties/publishProfiles/
-WaybackAPI/obj/
-WaybackAPI/bin/
+WaybackAPI/[Bb]in/*
+WaybackAPI/[Oo]bj/*
 WaybackAPI/ScaffoldingReadMe.txt
 WaybackAPI/.vs/
 WaybackAPI/**/*.cshtml
