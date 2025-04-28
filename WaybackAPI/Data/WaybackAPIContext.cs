@@ -14,7 +14,6 @@ public class WaybackAPIContext : DbContext
    {
 
       modelBuilder.Entity<GameContributor>().HasKey(gc => new { gc.GameId, gc.ContributorId });
-      // im going to need help, chat doesn't reassure me enough of a safe implementation
 
    }
 
