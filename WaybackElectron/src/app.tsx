@@ -15,7 +15,7 @@ const App = () => (
       <HashRouter>
 
          {/* WRAPPER */}
-         <div className="font-codedojofont text-2xl">
+         <div className="font-codedojofont text-2xl" id="wayback-root">
 
             {/* BACKGROUND */}
             <div className="bg-zinc-950 w-screen h-screen fixed -z-10"></div>

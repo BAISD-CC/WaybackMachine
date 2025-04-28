@@ -1021,13 +1021,13 @@ if (__webpack_require__(/*! electron-squirrel-startup */ "./node_modules/electro
 const createWindow = () => {
     // Create the browser window.
     const mainWindow = new electron_1.BrowserWindow({
-        height: 600,
-        width: 800,
+        height: 1024,
+        width: 1280,
         webPreferences: {
             preload: '/Users/aj/Documents/GitHub/WaybackMachine/WaybackElectron/.webpack/renderer/main_window/preload.js',
         },
         autoHideMenuBar: true,
-        kiosk: true
+        // kiosk: true
     });
     // and load the index.html of the app.
     mainWindow.loadURL('http://localhost:3000/main_window');
