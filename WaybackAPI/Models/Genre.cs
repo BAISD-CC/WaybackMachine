@@ -1,20 +1,12 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace WaybackAPI.Models
 {
-    public enum Genre
+    public class Genre
     {
-        Action,
-        Adventure,
-        Fighting,
-        Horror,
-        MMO,
-        Platformer,
-        Puzzle,
-        Racing,
-        RolePlaying,
-        Sandbox,
-        Simulation,
-        Sports,
-        Strategy,
-        Survival
+        [Key]
+        public int Id { get; set; }
+        public required string Name { get; set; }
     }
+
 }
