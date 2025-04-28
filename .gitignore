@@ -510,3 +510,5 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+WaybackAPI/bin/Debug/net9.0/
