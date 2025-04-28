@@ -3,6 +3,9 @@ using WaybackAPI.Models;
 using Microsoft.AspNetCore.Http.Json;
 using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
+using WaybackAPI.Routes;
+using WaybackAPI.Interfaces;
+using WaybackAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,23 +44,24 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddDbContext<WaybackAPIContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("KruskieLab")));
 
+builder.Services.AddScoped<IGameService, GameService>();
+builder.Services.AddScoped<IContributorService, ContributorService>();
+builder.Services.AddScoped<IMediaService, MediaService>();
+
 var app = builder.Build();
 
 app.UseCors("AllowAllOrigins");
 
-// if (app.Environment.IsDevelopment())
-// {
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "BAISD - Wayback Machine v1");
 });
-// }
 
-app.MapControllers();
 app.MapGet("/", () => "Bay-Arenac ISD Career Center - Computer Programming - Wayback Machine API");
 
-// app.MapGet("/games", () => Results.Json(games));
-app.MapGet("/categories", () => Genre.GetNames(typeof(Genre)));
+app.MapGameRoutes();
+app.MapContributorRoutes();
+app.MapMediaRoutes();
 
 app.Run();
