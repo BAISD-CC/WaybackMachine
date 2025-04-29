@@ -1025,7 +1025,7 @@ const createWindow = () => {
         height: 1024,
         width: 1280,
         webPreferences: {
-            preload: 'C:\\Users\\admin\\Documents\\GitHub\\WaybackMachine\\WaybackElectron\\.webpack\\renderer\\main_window\\preload.js',
+            preload: '/Users/aj/Documents/GitHub/WaybackMachine/WaybackElectron/.webpack/renderer/main_window/preload.js',
             contextIsolation: true
         },
         autoHideMenuBar: true,
@@ -1035,7 +1035,7 @@ const createWindow = () => {
     mainWindow.loadURL('http://localhost:3000/main_window');
     // Open the DevTools.
     // mainWindow.webContents.openDevTools();
-    console.log('preload entry: ', 'C:\\Users\\admin\\Documents\\GitHub\\WaybackMachine\\WaybackElectron\\.webpack\\renderer\\main_window\\preload.js');
+    console.log('preload entry: ', '/Users/aj/Documents/GitHub/WaybackMachine/WaybackElectron/.webpack/renderer/main_window/preload.js');
 };
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
