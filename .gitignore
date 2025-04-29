@@ -6,8 +6,8 @@ WaybackAPI/Areas/
 WaybackAPI/Migrations/
 WaybackAPI/Properties/launchSettings.json
 WaybackAPI/Properties/publishProfiles/
-WaybackAPI/obj/
-WaybackAPI/bin/
+WaybackAPI/[Bb]in/*
+WaybackAPI/[Oo]bj/*
 WaybackAPI/ScaffoldingReadMe.txt
 WaybackAPI/.vs/
 WaybackAPI/**/*.cshtml
@@ -510,3 +510,5 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+WaybackAPI/bin/Debug/net9.0/

@@ -1,19 +1,16 @@
 using System.ComponentModel.DataAnnotations;
+using WaybackAPI.Models;
 
-namespace WaybackAPI.Models
+public class GameContributor
 {
-
-   public class GameContributor
-   {
-
-      [Required]
-      public required int GameId { get; set; }
-      [Required]
-      public required int ContributorId { get; set; }
-
-      public required Game Game { get; set; }
-      public required Contributor Contributor { get; set; }
-
-   }
-
+    [Key]
+    public required int Id { get; set; }
+    [Required]
+    public required int GameId { get; set; }
+    [Required]
+    public required Game Game { get; set; }
+    [Required]
+    public required int ContributorId { get; set; }
+    [Required]
+    public required Contributor Contributor { get; set; }
 }
