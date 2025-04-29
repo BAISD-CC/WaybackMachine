@@ -1,4 +1,6 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, ipcMain } from 'electron';
+import { execFile } from 'child_process';
+
 
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
@@ -15,6 +17,7 @@ const createWindow = (): void => {
       width: 1280,
       webPreferences: {
          preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
+         contextIsolation: true
       },
       autoHideMenuBar: true,
       // kiosk: true
@@ -25,6 +28,8 @@ const createWindow = (): void => {
 
    // Open the DevTools.
    mainWindow.webContents.openDevTools();
+
+   console.log('preload entry: ', MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY);
 };
 
 // This method will be called when Electron has finished
@@ -49,5 +54,18 @@ app.on('activate', () => {
    }
 });
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and import them here.
+// Function to launch the game
+const launchGame = () => {
+   execFile("C:/Users/admin/Documents/Games/Deep Down - The Lost City of Atlantis/Final - Windows/launch.exe", (error) => {
+      if (error) {
+         console.error('Error launching game:', error);
+      } else {
+         console.log('Game launched successfully.');
+      }
+   });
+};
+
+// Listen for the "launch-game" event from renderer process
+ipcMain.on('launch-game', () => {
+   launchGame();
+});

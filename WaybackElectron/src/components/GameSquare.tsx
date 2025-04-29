@@ -39,13 +39,21 @@ export default function GameSquare({ game }: { game: Game }) {
 
    }, [game.id]);
 
+   const handleLaunchGame = () => {
+
+      console.log(window)
+
+      window.electron.launchGame();
+
+   }
+
    return (
       <>
          <a className="animations-fade-in duration-100 flex border-4 border-green-500 hover:border-pink-500 bg-zinc-800 w-72 h-72 m-5 overflow-hidden rounded-lg scale-100 hover:scale-105" onClick={
             () =>
 
-               // setIsModalOpen(true)
-               console.log("Fix After Showcase")
+               // Launch Application
+               handleLaunchGame()
 
          }>
 
@@ -61,13 +69,14 @@ export default function GameSquare({ game }: { game: Game }) {
 
             </div>
 
-         </a>
+         </a >
 
 
 
          {isModalOpen && (
             <GameModal game={game} onClose={() => setIsModalOpen(false)} />
-         )}
+         )
+         }
       </>
    );
 }

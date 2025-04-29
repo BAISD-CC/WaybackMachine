@@ -4,6 +4,8 @@ declare module '*.gif';
 
 declare global {
    interface Window {
-      test: string[]
+      electron: {
+         launchGame: () => void;
+      };
    }
 }

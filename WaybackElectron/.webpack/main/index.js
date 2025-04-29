@@ -1014,6 +1014,7 @@ var exports = __webpack_exports__;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const electron_1 = __webpack_require__(/*! electron */ "electron");
+const child_process_1 = __webpack_require__(/*! child_process */ "child_process");
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (__webpack_require__(/*! electron-squirrel-startup */ "./node_modules/electron-squirrel-startup/index.js")) {
     electron_1.app.quit();
@@ -1025,6 +1026,7 @@ const createWindow = () => {
         width: 1280,
         webPreferences: {
             preload: '/Users/aj/Documents/GitHub/WaybackMachine/WaybackElectron/.webpack/renderer/main_window/preload.js',
+            contextIsolation: true
         },
         autoHideMenuBar: true,
         // kiosk: true
@@ -1033,6 +1035,7 @@ const createWindow = () => {
     mainWindow.loadURL('http://localhost:3000/main_window');
     // Open the DevTools.
     mainWindow.webContents.openDevTools();
+    console.log('preload entry: ', '/Users/aj/Documents/GitHub/WaybackMachine/WaybackElectron/.webpack/renderer/main_window/preload.js');
 };
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -1053,8 +1056,21 @@ electron_1.app.on('activate', () => {
         createWindow();
     }
 });
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and import them here.
+// Function to launch the game
+const launchGame = () => {
+    (0, child_process_1.execFile)("C:/Users/admin/Documents/Games/Deep Down - The Lost City of Atlantis/Final - Windows/launch.exe", (error) => {
+        if (error) {
+            console.error('Error launching game:', error);
+        }
+        else {
+            console.log('Game launched successfully.');
+        }
+    });
+};
+// Listen for the "launch-game" event from renderer process
+electron_1.ipcMain.on('launch-game', () => {
+    launchGame();
+});
 
 })();
 
