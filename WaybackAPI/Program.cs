@@ -25,18 +25,13 @@ builder.Services.Configure<JsonOptions>(options =>
     options.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
 });
 
-// builder.Services.AddControllers()
-//     .AddJsonOptions(options =>
-//     {
-//         options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
-//     });
-
 builder.Services.AddDbContext<WaybackAPIContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("KruskieLab")));
 
 builder.Services.AddScoped<IGameService, GameService>();
 builder.Services.AddScoped<IContributorService, ContributorService>();
 builder.Services.AddScoped<IMediaService, MediaService>();
+builder.Services.AddScoped<IGenreService, GenreService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -66,5 +61,6 @@ app.MapGet("/", () => "Bay-Arenac ISD Career Center - Computer Programming - Way
 app.MapGameRoutes();
 app.MapContributorRoutes();
 app.MapMediaRoutes();
+app.MapGenreRoutes();
 
 app.Run();
