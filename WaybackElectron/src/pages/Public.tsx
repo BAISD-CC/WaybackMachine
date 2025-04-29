@@ -2,7 +2,6 @@
 import Sidebar from "../components/Sidebar";
 import Topbar from "../components/Topbar";
 import GameSquare from "../components/GameSquare";
-import GameModal from "../components/GameModal";
 
 // Packages
 import { useState, useEffect } from "react";
@@ -14,6 +13,7 @@ import '../animations.css'
 // Interface
 export interface Game {
    id: number,
+   guid: string,
    name: string,
    description: string,
    authors: object[],
@@ -26,7 +26,7 @@ export interface Game {
 // Default
 export default function Public() {
 
-   const gamesListPath = "http://localhost:5111/Api/Games";
+   const gamesListPath = "https://wayback-api-prod.codedojoconnect.com/api/games";
 
    const [gamesList, setGamesList] = useState<Game[]>([])
 

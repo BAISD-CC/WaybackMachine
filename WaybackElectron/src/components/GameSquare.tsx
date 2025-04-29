@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 // Other
 import test_icon from "../assets/placeholder-square.jpg";
+import '../animations.css'
 
 export default function GameSquare({ game }: { game: Game }) {
 
@@ -40,7 +41,13 @@ export default function GameSquare({ game }: { game: Game }) {
 
    return (
       <>
-         <a className="duration-100 flex border-4 border-green-500 hover:border-pink-500 bg-zinc-800 w-72 h-72 m-5 overflow-hidden rounded-lg scale-100 hover:scale-105" onClick={() => setIsModalOpen(true)}>
+         <a className="animations-fade-in duration-100 flex border-4 border-green-500 hover:border-pink-500 bg-zinc-800 w-72 h-72 m-5 overflow-hidden rounded-lg scale-100 hover:scale-105" onClick={
+            () =>
+
+               // setIsModalOpen(true)
+               console.log("Fix After Showcase")
+
+         }>
 
             <div className="flex self-end justify-center items-center w-full h-16 text-center">
 

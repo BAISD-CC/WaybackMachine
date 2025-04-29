@@ -11,7 +11,7 @@ import test_icon from "../assets/placeholder-square.jpg";
 export default function GameModal({ game, onClose }: { game?: Game | null, onClose: () => void }) {
 
    const [gameThumbnail, setGameThumbnail] = useState<string | null>(null);
-   const getThumbnailPath = "http://localhost:5111/Route/Media/Api/Media/Thumbnail/" + String(game.id);
+   const getThumbnailPath = "https://wayback-api-prod.codedojoconnect.com/media/thumbnail/" + String(game.guid);
 
    useEffect(() => {
 

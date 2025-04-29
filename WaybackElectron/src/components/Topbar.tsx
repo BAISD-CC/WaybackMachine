@@ -6,7 +6,7 @@ import '../animations.css';
 
 export default function Topbar() {
 
-   const categoryDataPath = "http://localhost:5111/categories";
+   const categoryDataPath = "https://wayback-api-prod.codedojoconnect.com/api/genres";
 
    const [genres, setGenres] = useState<string[]>([]);
 
