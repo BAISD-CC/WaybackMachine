@@ -1025,17 +1025,17 @@ const createWindow = () => {
         height: 1024,
         width: 1280,
         webPreferences: {
-            preload: '/Users/aj/Documents/GitHub/WaybackMachine/WaybackElectron/.webpack/renderer/main_window/preload.js',
+            preload: 'C:\\Users\\admin\\Documents\\GitHub\\WaybackMachine\\WaybackElectron\\.webpack\\renderer\\main_window\\preload.js',
             contextIsolation: true
         },
         autoHideMenuBar: true,
-        // kiosk: true
+        kiosk: true
     });
     // and load the index.html of the app.
     mainWindow.loadURL('http://localhost:3000/main_window');
     // Open the DevTools.
-    mainWindow.webContents.openDevTools();
-    console.log('preload entry: ', '/Users/aj/Documents/GitHub/WaybackMachine/WaybackElectron/.webpack/renderer/main_window/preload.js');
+    // mainWindow.webContents.openDevTools();
+    console.log('preload entry: ', 'C:\\Users\\admin\\Documents\\GitHub\\WaybackMachine\\WaybackElectron\\.webpack\\renderer\\main_window\\preload.js');
 };
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -1058,7 +1058,7 @@ electron_1.app.on('activate', () => {
 });
 // Function to launch the game
 const launchGame = () => {
-    (0, child_process_1.execFile)("C:/Users/admin/Documents/Games/Deep Down - The Lost City of Atlantis/Final - Windows/launch.exe", (error) => {
+    (0, child_process_1.execFile)("C:/Users/admin/Documents/Games/Deep Down - The Lost City of Atlantis/Final - Windows/application.exe", (error) => {
         if (error) {
             console.error('Error launching game:', error);
         }

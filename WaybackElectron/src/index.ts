@@ -20,14 +20,14 @@ const createWindow = (): void => {
          contextIsolation: true
       },
       autoHideMenuBar: true,
-      // kiosk: true
+      kiosk: true
    });
 
    // and load the index.html of the app.
    mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
 
    // Open the DevTools.
-   mainWindow.webContents.openDevTools();
+   // mainWindow.webContents.openDevTools();
 
    console.log('preload entry: ', MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY);
 };
@@ -56,7 +56,7 @@ app.on('activate', () => {
 
 // Function to launch the game
 const launchGame = () => {
-   execFile("C:/Users/admin/Documents/Games/Deep Down - The Lost City of Atlantis/Final - Windows/launch.exe", (error) => {
+   execFile("C:/Users/admin/Documents/Games/Deep Down - The Lost City of Atlantis/Final - Windows/application.exe", (error) => {
       if (error) {
          console.error('Error launching game:', error);
       } else {
