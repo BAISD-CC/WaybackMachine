@@ -1,6 +1,7 @@
 import Dropdown from "./Dropdown";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Genre } from "../pages/Public";
 
 import '../animations.css';
 
@@ -14,11 +15,17 @@ export default function Topbar() {
 
       const fetchGenres = async () => {
 
+         const temp: string[] = []
+
          try {
-            const { data } = await axios.get<string[]>(
+            const { data } = await axios.get<Genre[]>(
                categoryDataPath
             );
-            setGenres(data);
+
+            for (let i = 0; i < data.length; i++) { console.log(data[i]); temp.push(data[i].name) }
+
+            setGenres(temp)
+
          } catch (err) {
             setGenres(["No Data Available"])
          }

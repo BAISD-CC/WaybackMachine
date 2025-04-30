@@ -1029,12 +1029,12 @@ const createWindow = () => {
             contextIsolation: true
         },
         autoHideMenuBar: true,
-        kiosk: true
+        // kiosk: true
     });
     // and load the index.html of the app.
     mainWindow.loadURL('http://localhost:3000/main_window');
     // Open the DevTools.
-    // mainWindow.webContents.openDevTools();
+    mainWindow.webContents.openDevTools();
     console.log('preload entry: ', '/Users/aj/Documents/GitHub/WaybackMachine/WaybackElectron/.webpack/renderer/main_window/preload.js');
 };
 // This method will be called when Electron has finished

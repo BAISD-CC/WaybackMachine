@@ -23,6 +23,11 @@ export interface Game {
    exedir: string
 }
 
+export interface Genre {
+   id: number,
+   name: string
+}
+
 // Default
 export default function Public() {
 
