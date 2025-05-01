@@ -14,7 +14,7 @@ export default function GameSquare({ game }: { game: Game }) {
    const [gameThumbnail, setGameThumbnail] = useState<string | null>(null);
    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-   const getThumbnailPath = "http://localhost:5111/Route/Media/Api/Media/Thumbnail/" + String(game.id);
+   const getThumbnailPath = "https://wayback-api-prod.codedojoconnect.com/api/media/thumbnail/" + String(game.guid);
 
    useEffect(() => {
 
@@ -23,11 +23,13 @@ export default function GameSquare({ game }: { game: Game }) {
          try {
 
             const { data } = await axios.get(getThumbnailPath, { responseType: 'arraybuffer' });
-            const blob = new Blob([data], { type: "image/png" });
+            const blob = new Blob([data], { type: "image/jpg" });
             const imageUrl = URL.createObjectURL(blob);
             setGameThumbnail(imageUrl);
 
          } catch (err) {
+
+            alert(err)
 
             console.error("Error fetching thumbnail:", err);
             setGameThumbnail(test_icon);
@@ -39,21 +41,14 @@ export default function GameSquare({ game }: { game: Game }) {
 
    }, [game.id]);
 
-   const handleLaunchGame = () => {
-
-      console.log(window)
-
-      window.electron.launchGame();
-
-   }
-
    return (
       <>
          <a className="animations-fade-in duration-100 flex border-4 border-green-500 hover:border-pink-500 bg-zinc-800 w-72 h-72 m-5 overflow-hidden rounded-lg scale-100 hover:scale-105" onClick={
             () =>
 
                // Launch Application
-               handleLaunchGame()
+               // handleLaunchGame()
+               setIsModalOpen(true)
 
          }>
 

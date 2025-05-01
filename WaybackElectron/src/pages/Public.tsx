@@ -23,6 +23,18 @@ export interface Game {
    exedir: string
 }
 
+export interface Contributor {
+   id: number,
+   guid: string,
+   name: string,
+   gameContributors: object[],
+   graduationYear: number,
+   bio: string,
+   gitHubSlug: string,
+   linkedInSlug: string,
+   picture: string
+}
+
 export interface Genre {
    id: number,
    name: string

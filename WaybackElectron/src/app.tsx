@@ -24,6 +24,7 @@ const App = () => (
             <Routes>
                <Route path="/" element={<Public />} />
                <Route path="/contributors" element={<Contributors />} />
+               <Route path="/contributors/:specificContributor" element={<Contributors />} />
                <Route path="/credits" element={<Credits />} />
             </Routes>
          </div>

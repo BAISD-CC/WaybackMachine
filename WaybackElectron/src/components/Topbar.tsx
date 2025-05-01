@@ -22,7 +22,7 @@ export default function Topbar() {
                categoryDataPath
             );
 
-            for (let i = 0; i < data.length; i++) { console.log(data[i]); temp.push(data[i].name) }
+            for (let i = 0; i < data.length; i++) { temp.push(data[i].name) }
 
             setGenres(temp)
 
