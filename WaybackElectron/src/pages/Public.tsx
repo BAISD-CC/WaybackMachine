@@ -16,8 +16,9 @@ export interface Game {
    guid: string,
    name: string,
    description: string,
-   authors: object[],
+   gameContributors: GameContributor[],
    year: number,
+   gameGenres: object[],
    imageurl: string,
    repourl: string,
    exedir: string
@@ -27,12 +28,19 @@ export interface Contributor {
    id: number,
    guid: string,
    name: string,
-   gameContributors: object[],
+   gameContributors: GameContributor[],
    graduationYear: number,
    bio: string,
    gitHubSlug: string,
    linkedInSlug: string,
    picture: string
+}
+
+export interface GameContributor {
+   id: number,
+   gameId: number,
+   contributorId: number,
+   contributor: Contributor,
 }
 
 export interface Genre {

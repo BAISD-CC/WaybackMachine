@@ -1,8 +1,7 @@
-import { Game } from "../pages/Public";
+import { Contributor, Game, GameContributor } from "../pages/Public";
 import { createPortal } from "react-dom";
 import { useState, useEffect } from 'react';
 import axios from "axios";
-import { Carousel } from "flowbite/lib/esm";
 
 import '../animations.css'
 
@@ -11,6 +10,7 @@ import test_icon from "../assets/placeholder-square.jpg";
 export default function GameModal({ game, onClose }: { game?: Game | null, onClose: () => void }) {
 
    const [gameThumbnail, setGameThumbnail] = useState<string | null>(null);
+   const [developers, setDevelopers] = useState<Contributor[] | null>(null);
    const getThumbnailPath = "https://wayback-api-prod.codedojoconnect.com/api/media/thumbnail/" + String(game.guid);
 
    useEffect(() => {
@@ -33,14 +33,32 @@ export default function GameModal({ game, onClose }: { game?: Game | null, onClo
       };
 
       fetchThumbnail();
+      setContributors();
 
    }, [game.id]);
 
    const handleLaunchGame = () => {
 
-      console.log(window)
+      console.log(developers);
 
-      window.electron.launchGame();
+      // window.electron.launchGame();
+
+   }
+
+   const setContributors = () => {
+
+      var temp: Contributor[] = [];
+
+      for (var i = 0; i < game.gameContributors.length; i++) {
+
+         var gameContributor: GameContributor = game.gameContributors[i];
+         var contributor: Contributor = gameContributor.contributor;
+
+         temp.push(contributor);
+
+      }
+
+      setDevelopers(temp);
 
    }
 
@@ -97,9 +115,20 @@ export default function GameModal({ game, onClose }: { game?: Game | null, onClo
                      <div className="h-1/2 max-h-[50%]">
 
                         <span className="w-full h-fit inline-flex items-end text-green-500 text-4xl drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.4)]">Developers</span>
-                        <div className="w-full h-full max-h-56 px-4 pt-2 bg-black bg-opacity-25 rounded-lg flex flex-col overflow-y-scroll text-white text-2xl drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.4)]">
-                           <span>test</span>
-                        </div>
+                        <ul className="w-full h-full max-h-60 p-4 gap-4 bg-black bg-opacity-25 rounded-lg flex flex-col overflow-y-scroll text-white text-2xl drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.4)]">
+
+                           {developers && developers.map(dev => (
+
+                              <li key={dev.name} className="h-12 bg-zinc-800 bg-opacity-25 rounded-lg flex flex-row gap-2 text-white items-center">
+
+                                 <img src={test_icon} className="aspect-square max-h-full" />
+                                 <a href={`https://github.com/${dev.gitHubSlug}`} className="text-white w-full">{dev.name}</a>
+
+                              </li>
+
+                           ))}
+
+                        </ul>
 
                      </div>
 
